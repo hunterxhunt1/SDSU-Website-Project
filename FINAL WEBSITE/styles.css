@@ -154,7 +154,7 @@
 		display: table;
 	}
 	
-	#mobile-menu{
+	#menu{
 		position: absolute;
 		top: 20%;
 		right: 5%;
@@ -179,15 +179,15 @@
 		cursor: pointer;
 	}
 
-	#mobile-menu.is-active .nav:nth-child(2){
+	#menu.is-active .nav:nth-child(2){
 		opacity: 0;
 	}
 
-	#mobile-menu.is-active .nav:nth-child(1){
+	#menu.is-active .nav:nth-child(1){
 		transform: translateY(8px) rotate(45deg);
 	}
 
-	#mobile-menu.is-active .nav:nth-child(3){
+	#menu.is-active .nav:nth-child(3){
 		transform: translateY(-8px) rotate(-45deg);
 	}
 
