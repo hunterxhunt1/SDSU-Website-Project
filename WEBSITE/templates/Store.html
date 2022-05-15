@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Store Page (Test)</title>
+        <meta name="description" content="This is the description">
+        <link rel="stylesheet" href = "{{ url_for('static',filename='store_styles.css') }}"/>
+        <script src="{{ url_for('static',filename='store.js') }}" async></script>
+
+
+
+    </head>
+    <body>
+      
+	<!--Top bar-->
+	<nav class = "bar"><!--defines a set of navigation links-->
+		<div class = "bar__container">
+				<a href = "/home" id = "Logo"><img src = "{{ url_for('static',filename='Logo.png') }}" alt ="Logo" width = "150px" height = "150px"></img><b>SDSU Saudi Club</b></a>
+				<div class = "bar__toggle" id = "menu">
+					<span class = "nav"></span>
+					<span class = "nav"></span>
+					<span class = "nav"></span>
+				</div>
+				<ul class ="bar__menu"><!--Elements in menu -->
+					<li class ="bar__item"><!--Format elements-->
+						<a href ="/home" class ="bar_links">Home</a>
+					</li>
+					<li class ="bar__item"><!--Format elements-->
+						<a href ="/store" class ="bar_links">Store</a>
+					</li>
+					<li class ="bar__item"><!--Format elements-->
+						<a href ="/events" class ="bar_links">Events</a>
+					</li>
+					<li class ="bar__item"><!--Format elements-->
+						<a href ="/about" class ="bar_links">About Us</a>
+					</li>
+					<li class = "bar__btn">
+						<a href = "/cart" class><img src = "{{ url_for('static',filename='cart.png') }}" alt = "cart" id = "cart_img" width = "50px" height = "50px"></img><br></a>
+					</li>			 
+					<li class = "bar__btn">
+						<a href = "/logout" class = "button1">Logout</a>
+					</li>			
+				
+				</ul>
+				
+		</div>
+	</nav>
+
+
+<h1 class = "title">Welcome To The Store!</h1>
+
+       <section class="container content-section">
+            <h2 class="section-header"></h2>
+            <div class="shop-items">
+
+
+                <div class="shop-item">
+
+                    <img class="shop-item-image" src="{{ url_for('static',filename='shirtM.jpg') }}">
+                                        <span class="shop-item-title">Men's Shirt</span>
+                    <div class="shop-item-details">
+
+                        <span class="shop-item-price">$25.00</span>
+                        
+                        <button class="btn btn-primary shop-item-button" type="button">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="shop-item">
+   
+                    <img class="shop-item-image" src="{{ url_for('static',filename='shirtW.jpg') }}">   
+                                            <span class="shop-item-title">Women's Shirt</span>          
+                    <div class="shop-item-details">
+
+                        <span class="shop-item-price">$25.00</span>
+                        <button class="btn btn-primary shop-item-button" type="button">Add to Cart</button>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+
+
+
+
+       <section class="container content-section">
+            <h2 class="section-header"></h2>
+            <div class="shop-items">
+
+
+                <div class="shop-item">
+                    
+                    <img class="shop-item-image" id = "beanie" src="{{ url_for('static',filename='beanie.jpg') }}">
+                        <span class="shop-item-title">Beanie</span>
+                    <div class="shop-item-details">
+
+                        <span class="shop-item-price">$15.00</span>
+                        <button class="btn btn-primary shop-item-button" type="button">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="shop-item">
+                  
+                    <img class="shop-item-image" src="{{ url_for('static',filename='notebook.jpg') }}">
+                    <span class="shop-item-title">Notebook</span>
+                    <div class="shop-item-details">
+                  
+                        <span class="shop-item-price">$15.00</span>
+                        <button class="btn btn-primary shop-item-button" type="button">Add to Cart</button>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+
+
+
+
+        <section class="container content-section">
+            <h2 class="section-header"></h2>
+            <div class="shop-items">
+
+
+                <div class="shop-item">
+                   
+                    <img class="shop-item-image" src="{{ url_for('static',filename='mug.jpg') }}">
+                    <span class="shop-item-title">Mug</span>
+                    <div class="shop-item-details">
+                        
+                        <span class="shop-item-price">$15.00</span>
+                        <button class="btn btn-primary shop-item-button" type="button">Add to Cart</button>
+                    </div>
+                </div>
+
+
+                <div class="shop-item">
+                    
+                    <img class="shop-item-image" src="{{ url_for('static',filename='painting.jpg') }}">
+                    <span class="shop-item-title">Painting</span>
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$10.00</span>
+                        <button class="btn btn-primary shop-item-button" type="button">Add to Cart</button>
+                    </div>
+                </div>
+
+                
+            </div>
+        </section>
+
+<h2 class="cartTitle">CART</h2>
+
+        <div class = "cart">
+        <section class="container content-section">
+            <div class="cart-row">
+                <span class="cart-item cart-header cart-column">ITEM</span>
+                <span class="cart-price cart-header cart-column">PRICE</span>
+                <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+            </div>
+            <div class="cart-items">
+            </div>
+            <div class="cart-total">
+                <strong class="cart-total-title">Total Cost:</strong>
+                <span class="cart-total-price">$0</span>
+            </div>
+        </section>
+  	  </div>
+
+
+		
+
+			<div class = "checkout">
+				<form method = "POST">
+				  <label for="fname">First Name:</label>
+				  <input type="text" id="fname" name="fname"><br><br>
+
+				  <label for="lname">Last Name:</label>
+				  <input type="text" id="lname" name="lname"><br><br>
+
+				  <label for="address">Shipping Address:</label>
+				  <input type="text" id="address" name="address"><br><br>
+
+				  <label for="city">City:</label>
+				  <input type="text" id="city" name="city"><br><br>
+
+				  <label for="state">State:</label>
+				  <input type="text" id="state" name="state"><br><br>
+
+				  <label for="zip">Zip Code:</label>
+				  <input type="text" id="zip" name="zip"><br><br>
+
+
+				  <label for="phone">Phone Number:</label>
+				  <input type="text" id="phone" name="phone"><br><br>
+
+				  <label for="email">Email:</label>
+				  <input type="text" id="email" name="email"><br><br>
+
+				  <label for="card">Credit Card #:</label>
+				  <input type="text" id="card" name="card"><br><br>
+
+				  <label for="cvv">CVV:</label>
+				  <input type="text" id="cvv" name="cvv"><br><br>
+
+				  <label for="date"> Card Expiration Date:</label>
+				  <input type="text" id="date" name="date"><br><br>
+
+			  	<button class="btn btn-primary btn-purchase" type="submit">Confirm Order</button>
+
+					<br>
+					<br>
+				</form>
+
+			</div>
+
+
+	<div class = "msgcontainer" >
+		<!-- GETS ALL OF THE MESSAGES THAT WE WANT TO FLASH TO USER -->
+	{% with messages = get_flashed_messages(with_categories=true) %}
+		{% if messages%}
+			{% for category, message in messages %}
+				{% if category == 'error' %}
+					<div class = "alert alert-danger alter-dismissable fade show" role = "alert">
+						<b>{{ message }}</b>
+						<button type="button" class="close" data-dismiss = "alert">
+							<span aria-hidden ="true">&times;</span>
+						</button>
+					</div>
+
+				{% else %}
+					<div class = "alert alert-success alter-dismissable fade show" role = "alert">
+						<b>{{ message }}</b>
+						<button type="button" class="close" data-dismiss = "alert">
+							<span aria-hidden ="true">&times;</span>
+						</button>
+					</div>
+				{% endif %}
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+	</div>
+		
+
+
+
+                <!--Footer-->
+    <footer class="footer">
+        <div class="container-footer">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Address</h4>
+                    <ul>
+                        <li><a href="#">5500 Campanile Dr,</a></li>
+                        <li><a href="#">San Diego, CA 92182</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4> Follow Us</h4>
+                    <div class ="social">
+                        <a href=""><i class="fab fa-facebook -f"></i></a>
+                        <a href=""><i class="fab fa-twitter"></i></a>
+                        <a href=""><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><a href="#">Email : Saudisdsu@gmail.com
+</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src = "{{ url_for('static',filename='app.js') }}"></script>
+    </body>
+</html>

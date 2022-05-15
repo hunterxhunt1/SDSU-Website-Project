@@ -1,0 +1,102 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    background-color: #E4D3B3;
+    position: relative;
+    padding-bottom: 240px;
+
+    min-height: 20px;   
+}
+.box{
+    width:600px;
+    height:550px;
+    background-color: #fff;
+    margin:auto;
+    margin-top: 40px;
+    border-radius: 5px;
+}
+.box .header{
+    background-color: #A6192E;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.box .header p{
+    text-align: center;
+    padding:5px;
+    font-size: 20px;
+    color:#fff;
+    font-family: sans-serif;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+ .question p{
+    font-weight: bold;
+    margin: 0;
+    text-align: left;
+}
+
+
+.msgcontainer{
+    display: flex;
+    justify-self: center;
+    margin: 0 90vh;
+    width: 500px;
+    margin-top: 50px;
+}
+ 
+button{
+    border-radius: 20px ;
+    border: 1px solid #A6192E;
+    background-color:  #A6192E;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: tranform 80ms ease-in;
+    text-align: center;
+    margin-top: 10px ;
+}
+
+button:active{
+    transform: scale(0.95);
+}
+
+button:focus{
+    outline:  none;
+}
+
+
+
+
+form{
+    /*background-color: #ffffff;*/
+
+    display: flex;
+    
+    justify-content: center;
+    flex-direction: column;
+    padding: 0px 50px;
+    height: 90%;
+    
+
+}
+.question input{
+    background-color: #eee;
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0px;
+    width: 100%;
+}
+.radio_question input{
+    background-color: #eee;
+    border: none;
+    padding: 12px 15px;
+    margin: 14px 0px;
+    width: 10%;
+}

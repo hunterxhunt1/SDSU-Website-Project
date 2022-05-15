@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+<head>
+	<meta charse ="UTF-8">
+	<meta name = "viewport" content = "width = device-width, initial-scale = 1/0">
+	<title>First Page</title>
+	
+	<!-- JQUERY CDN-->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="crossorigin="anonymous"></script>
+
+	<!-- BOOTSTRAP -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+	<link rel= "stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">	
+
+	<link rel= "stylesheet" type = "text/css" href = "{{ url_for('static',filename='login.css') }}">
+	<link rel= "stylesheet" type = "text/css" href = "{{ url_for('static',filename='first_page_styles.css') }}">
+	<link rel= "stylesheet" type = "text/css" href = "{{ url_for('static',filename='store_styles.css') }}">	
+	
+</head>
+
+<body>
+	<!--Top bar-->
+	<nav class = "bar"><!--defines a set of navigation links-->
+		<div class = "bar__container">
+				<a href = "/home" id = "Logo"><img src = "{{ url_for('static',filename='Logo.png') }}" alt ="Logo" width = "150px" height = "150px"></img><b>SDSU Saudi Club</b></a>
+				<div class = "bar__toggle" id = "menu">
+					<span class = "nav"></span>
+					<span class = "nav"></span>
+					<span class = "nav"></span>
+				</div>
+				<ul class ="bar__menu"><!--Elements in menu -->
+					<li class ="bar__item"><!--Format elements-->
+						<a href ="/home" class ="bar_links">Home</a>
+					</li>
+					<li class ="bar__item"><!--Format elements-->
+						<a href ="/store" class ="bar_links">Store</a>
+					</li>
+					<li class ="bar__item"><!--Format elements-->
+						<a href ="/events" class ="bar_links">Events</a>
+					</li>
+					<li class ="bar__item"><!--Format elements-->
+						<a href ="/about" class ="bar_links">About Us</a>
+					</li>
+					<li class = "bar__btn">
+						<a href = "/cart" class><img src = "{{ url_for('static',filename='cart.png') }}" alt = "cart" id = "cart_img" width = "50px" height = "50px"></img><br></a>
+					</li>			 
+				</ul>
+				
+		</div>
+	</nav>
+	
+
+	<div class = "login">
+		<h1 class = "title">LOGIN HERE</h1>
+					<div class="container" id="container">
+				<div class="form-container Sign-Up-container">
+
+					<!-- SIGN-UP FORM -->
+					<form method = "POST">
+						<div>
+							<h1>Create Account</h1>
+							<input type="text" name="name" placeholder="Name">
+							<input type="email" name="email" placeholder="Email">
+							<input type="password" name="password1" placeholder="Password">
+						</div>
+						<button type = "submit" class="ghost" id="signUp">Sign Up</button>
+					</form>
+
+				</div>
+					
+				<div class="form-container log-in-container">
+
+					<!-- LOGIN FORM -->
+					<form method = "POST" action="{{ url_for('login') }}">
+						<div>
+							<h1>Log In</h1>
+							<input type="email" name="email" placeholder="Email">
+							<input type="password" name="password" placeholder="Password">
+							<a href="#">Forgot Your Password?</a>
+						</div>
+						<br></br>
+						<button type="submit" id="login">Log In</button>
+					</form>	
+
+				</div>
+
+			</div>
+		
+	</div>
+
+	<div class = "msgcontainer" >
+		<!-- GETS ALL OF THE MESSAGES THAT WE WANT TO FLASH TO USER -->
+	{% with messages = get_flashed_messages(with_categories=true) %}
+		{% if messages%}
+			{% for category, message in messages %}
+				{% if category == 'error' %}
+					<div class = "alert alert-danger alter-dismissable fade show" role = "alert">
+						<b>{{ message }}</b>
+						<button type="button" class="close" data-dismiss = "alert">
+							<span aria-hidden ="true">&times;</span>
+						</button>
+					</div>
+
+				{% else %}
+					<div class = "alert alert-success alter-dismissable fade show" role = "alert">
+						<b>{{ message }}</b>
+						<button type="button" class="close" data-dismiss = "alert">
+							<span aria-hidden ="true">&times;</span>
+						</button>
+					</div>
+				{% endif %}
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+	</div>
+	
+
+
+	
+	<!--SERVICES-->
+		<!--Footer-->
+	<footer class="footer">
+		<div class="container-footer">
+			<div class="row">
+				<div class="footer-col">
+					<h4>Address</h4>
+					<ul>
+						<li><a>5500 Campanile Dr,</a></li>
+						<li><a>San Diego, CA 92182</a></li>
+					</ul>
+				</div>
+				<div class="footer-col">
+					<h4> Follow Us</h4>
+					<div class ="social">
+						<a href = "https://www.facebook.com/groups/sscsdsu/?ref=share"><i class="fab fa-facebook -f"></i></a>
+						<a href = "https://mobile.twitter.com/sscsdsu"><i class="fab fa-twitter"></i></a>
+						<a href="https://www.instagram.com/sscsdsu/"><i class="fab fa-instagram"></i></a>
+					</div>
+				</div>
+				<div class="footer-col">
+					<h4>Contact Us</h4>
+					<ul>
+						<li><a>Email: Saudisdsu@gmail.com</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script
+	 type = "text/javascript"
+	 src = "{{ url_for('static',filename='app.js') }}">
+	</script>
+
+
+</body>
+
+</html>
